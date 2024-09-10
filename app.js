@@ -54,6 +54,15 @@ app.get("/connect-wallet", async (req, res) => {
   }
 });
 
+app.get("/connect-manually", async (req, res) => {
+  try {
+    return res.status(200).render("connect-wallet", {});
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ success: false, message: error.message });
+  }
+});
+
 app.get("/dashboard", async (req, res) => {
   if (!req.cookies.accessToken) {
     res.redirect("/");

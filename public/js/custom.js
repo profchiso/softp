@@ -13,7 +13,6 @@ coins.forEach((coin) => {
   coin.addEventListener("click", function (e) {
     // e.preventDefault();
     const coin = this.className.trim().split(" ")[2];
-    console.log(this.className.trim().split(" "));
     localStorage.setItem("coin", coin);
   });
 });
