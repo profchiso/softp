@@ -462,6 +462,9 @@ ol {
 .feature .feature-content {
   padding-left: 70px;
 }
+.feature-content {
+  cursor: pointer;
+}
 
 .feature .feature-content h4 {
   margin-bottom: 15px;
