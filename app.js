@@ -63,7 +63,7 @@ app.get("/connect-manually", async (req, res) => {
   }
 });
 
-app.get("/admin/login", async (req, res) => {
+app.get("/login", async (req, res) => {
   try {
     return res.status(200).render("login", {});
   } catch (error) {
