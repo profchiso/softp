@@ -63,6 +63,15 @@ app.get("/connect-manually", async (req, res) => {
   }
 });
 
+app.get("/admin/login", async (req, res) => {
+  try {
+    return res.status(200).render("login", {});
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ success: false, message: error.message });
+  }
+});
+
 app.get("/dashboard", async (req, res) => {
   if (!req.cookies.accessToken) {
     res.redirect("/");

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wallet Connect</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f8f9fa;
+      }
+      .wallet-container {
+        width: 500px;
+      }
+      .nav-tabs {
+        justify-content: center;
+      }
+      .btn-primary {
+        background-color: #007bff;
+      }
+      .header {
+        text-align: center;
+      }
+      .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 0;
+      }
+      @media (max-width: 768px) {
+        .wallet-container {
+          width: 100%;
+          padding: 0 15px;
+          box-sizing: border-box;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wallet-container">
+      <div class="header">
+        <img src="/img/logo.png" alt="Logo" class="mb-4" />
+        <h2>Login</h2>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="password"
+          />
+        </div>
+        <div class="form-group">
+          <button type="button" class="btn btn-primary">Login</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/manually"></script>
+  </body>
+</html>
