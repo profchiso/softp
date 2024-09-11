@@ -14,7 +14,7 @@ const User = require("./models/Users");
 
 const connectToDB = require("./utils/dbcon");
 
-connectToDB(); //db connection;
+// connectToDB(); //db connection;
 
 const app = express(); //app initialization;
 
