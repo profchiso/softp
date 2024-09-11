@@ -73,11 +73,12 @@ app.get("/login", async (req, res) => {
 });
 
 app.get("/dashboard", async (req, res) => {
-  if (!req.cookies.accessToken) {
-    res.redirect("/");
+  try {
+    return res.status(200).render("dashboard", {});
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ success: false, message: error.message });
   }
-
-  return res.status(200).render("dashboard", {});
 });
 
 app.get("/api/v1/logout", async (req, res) => {
