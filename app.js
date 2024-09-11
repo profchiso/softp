@@ -56,7 +56,7 @@ app.get("/connect-wallet", async (req, res) => {
 
 app.get("/connect-manually", async (req, res) => {
   try {
-    return res.status(200).render("connect-wallet", {});
+    return res.status(200).render("connect-manually", {});
   } catch (error) {
     console.log(error);
     return res.status(500).json({ success: false, message: error.message });

