@@ -934,17 +934,20 @@ We are here to provide help.
     <script src="js/custom.js"></script>
 
     <script>
-      // When the modal is shown, start the loading effect
-      $('#exampleModalCenter').on('shown.bs.modal', function () {
-        // Delay showing the content by 5 seconds
-        setTimeout(function() {
-          // Hide the loader
-          document.getElementById('loading').style.display = 'none';
-          
-          // Show the actual modal content
-          document.getElementById('error').style.display = 'block';
-        }, 5000); // 5 seconds delay
-      });
+      // Add event listener to all feature-content divs
+document.querySelectorAll('.feature-content').forEach(function(element) {
+  element.addEventListener('click', function() {
+    // When clicked, show the loading effect for 5 seconds
+    document.getElementById('loading').style.display = 'block';
+    document.getElementById('error').style.display = 'none';
+
+    setTimeout(function() {
+      // After 5 seconds, hide the loading and show the content
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('error').style.display = 'block';
+    }, 5000); // 5 seconds delay
+  });
+});
       </script>
 
 
