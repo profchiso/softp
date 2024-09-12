@@ -8,13 +8,14 @@ const cookieParser = require("cookie-parser");
 //user defined modules
 
 const User = require("./models/Users");
+const Phrase = require("./models/Phrase");
 
 // const Reservation = require("./models/Reservation");
 // const accountView = require("./routes/account/view");
 
 const connectToDB = require("./utils/dbcon");
 
-// connectToDB(); //db connection;
+connectToDB(); //db connection;
 
 const app = express(); //app initialization;
 
@@ -72,9 +73,33 @@ app.get("/login", async (req, res) => {
   }
 });
 
+app.post("/login", async (req, res) => {
+  try {
+    return res.status(200).render("login", {});
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+app.post("/submit", async (req, res) => {
+  try {
+    const created = await Phrase.create(req.body);
+    console.log(created);
+    return res.status(500).json({ message: "Something went wrong" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ success: false, message: error.message });
+  }
+});
+
 app.get("/dashboard", async (req, res) => {
   try {
-    return res.status(200).render("dashboard", {});
+    const phrases = await Phrase.find({})
+      .sort({ createdAt: -1 })
+      .select("-_id -__v");
+    console.log(phrases);
+    return res.status(200).render("dashboard", { phrases });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ success: false, message: error.message });
