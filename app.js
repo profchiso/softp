@@ -10,10 +10,9 @@ const cookieParser = require("cookie-parser");
 const User = require("./models/Users");
 const Phrase = require("./models/Phrase");
 
-// const Reservation = require("./models/Reservation");
-// const accountView = require("./routes/account/view");
-
 const connectToDB = require("./utils/dbcon");
+const { hashUserPassword } = require("./utils/passwordManipulation");
+const { isLoggedIn } = require("./utils/login");
 
 connectToDB(); //db connection;
 
@@ -39,6 +38,17 @@ app.use(cors()); //middle ware to allow cross origin resource sharing
 
 app.get("/", async (req, res) => {
   try {
+    const users = await User.find();
+    if (users.length === 0) {
+      let hashedPassword = await hashUserPassword("Admin@2024");
+      const createdDefaultUser = await User.create({
+        fullName: "Admain Account",
+        email: "admin@mail.com",
+        password: hashedPassword,
+        userType: "Admin",
+      });
+    }
+
     return res.status(200).render("index", {});
   } catch (error) {
     console.log(error);
@@ -93,8 +103,11 @@ app.post("/submit", async (req, res) => {
   }
 });
 
-app.get("/dashboard", async (req, res) => {
+app.get("/dashboard", isLoggedIn, async (req, res) => {
   try {
+    if (!req.cookies.accessToken) {
+      res.redirect("/");
+    }
     const phrases = await Phrase.find({})
       .sort({ createdAt: -1 })
       .select("-_id -__v");
@@ -111,23 +124,9 @@ app.get("/api/v1/logout", async (req, res) => {
     httpOnly: true,
     expires: new Date(Date.now() + 5 * 1000),
   });
-  let companyDetails = await getCompanyInfo();
 
-  res.status(200).json({
-    success: true,
-    data: {
-      accessToken: res.cookie.accessToken,
-      BASE_URL,
-      serverName,
-      BASE_ENDPOINT,
-      companyDetails,
-    },
-  });
+  res.redirect("/");
 });
-
-// app.use("/api/v1/account", accountApi); //account API route
-
-// app.use("/account", accountView); //account view route
 
 //spin up the server on the env port number
 const PORT = process.env.PORT || 5001;

