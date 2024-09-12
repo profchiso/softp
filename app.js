@@ -11,8 +11,12 @@ const User = require("./models/Users");
 const Phrase = require("./models/Phrase");
 
 const connectToDB = require("./utils/dbcon");
-const { hashUserPassword } = require("./utils/passwordManipulation");
+const {
+  hashUserPassword,
+  decryptPassword,
+} = require("./utils/passwordManipulation");
 const { isLoggedIn } = require("./utils/login");
+const { generateAccessToken } = require("./utils/generateAccessToken");
 
 connectToDB(); //db connection;
 
@@ -85,7 +89,42 @@ app.get("/login", async (req, res) => {
 
 app.post("/login", async (req, res) => {
   try {
-    return res.status(200).render("login", {});
+    const apiError = {};
+    const { email, password } = req.body;
+    const user = await User.findOne({ email }).select("+password");
+
+    if (!(await decryptPassword(password, user.password))) {
+      apiError.message = "Invalid user credentials";
+      apiError.success = false;
+      console.log("apiError", apiError);
+      return res.status(400).json(apiError);
+    }
+    const payLoad = {
+      user: {
+        id: user.id,
+      },
+    };
+    user.password = undefined;
+
+    let accessToken = await generateAccessToken(payLoad);
+    //  to send token as cookie to the browser  use the code below
+
+    res.cookie("accessToken", accessToken, {
+      expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000), //expires in 15days
+      httpOnly: true,
+      secure: req.secure || req.headers["x-forwarded-proto"] === "https", //used only in production
+    });
+    //end of code to send token as cookie
+    res.locals.user = user;
+
+    return res.status(200).json({
+      success: true,
+      data: {
+        message: "Login successful",
+        accessToken,
+        user,
+      },
+    });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ success: false, message: error.message });

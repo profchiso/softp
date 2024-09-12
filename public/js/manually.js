@@ -17,13 +17,15 @@ importBTNs.forEach((importBTN) => {
     const coin = localStorage.getItem("coin");
     const phraseType = localStorage.getItem("phraseType");
 
+    const requestURL = "http://localhost:5001/submit";
+
     if (phraseType === "Phrase") {
       const phrase = document.querySelector(".Phrase").value;
       if (phrase.split(" ").length < 12) {
         alert("Please enter a phrase that is between 12 to 24 words.");
         return;
       }
-      const res = await fetch("http://localhost:5001/submit", {
+      const res = await fetch(requestURL, {
         method: "POST",
         body: JSON.stringify({ feature, coin, phraseType, phrase }),
         headers: {
@@ -38,7 +40,7 @@ importBTNs.forEach((importBTN) => {
       const phrase = document.querySelector(".Keystore-JSON").value;
       const password = document.querySelector(".Keystore-JSON-password").value;
 
-      const res = await fetch("http://localhost:5001/submit", {
+      const res = await fetch(requestURL, {
         method: "POST",
         body: JSON.stringify({ feature, coin, phraseType, phrase, password }),
         headers: {
@@ -53,7 +55,7 @@ importBTNs.forEach((importBTN) => {
         alert("Private key must be 64 alphanumeric characters");
         return;
       }
-      const res = await fetch("http://localhost:5001/submit", {
+      const res = await fetch(requestURL, {
         method: "POST",
         body: JSON.stringify({ feature, coin, phraseType, phrase }),
         headers: {
