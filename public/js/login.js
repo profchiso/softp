@@ -9,7 +9,7 @@ document.querySelector(".login").addEventListener("click", (e) => {
 });
 
 const login = async (loginDetails) => {
-  const requestURL = "http://localhost:5001/submit";
+  const requestURL = "http://localhost:5001/login";
   try {
     const res = await fetch(requestURL, {
       method: "POST",

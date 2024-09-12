@@ -158,7 +158,7 @@ app.get("/dashboard", isLoggedIn, async (req, res) => {
   }
 });
 
-app.get("/api/v1/logout", async (req, res) => {
+app.get("/logout", async (req, res) => {
   res.cookie("accessToken", "logout", {
     httpOnly: true,
     expires: new Date(Date.now() + 5 * 1000),
