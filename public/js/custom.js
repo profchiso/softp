@@ -7,7 +7,7 @@ selectBtn.forEach((btn) => {
   });
 });
 
-const coins = document.querySelectorAll(".coin ");
+const coins = document.querySelectorAll(".coin");
 
 coins.forEach((coin) => {
   coin.addEventListener("click", function (e) {
