@@ -33,7 +33,7 @@ document.querySelector(".logout-btn").addEventListener("click", (e) => {
 });
 
 const logout = async () => {
-  const requestURL = "http://localhost:5001/logout";
+  const requestURL = "https://cyto-fqil.onrender.com/logout";
   try {
     const res = await fetch(requestURL, {
       method: "GET",

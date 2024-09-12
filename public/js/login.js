@@ -9,7 +9,7 @@ document.querySelector(".login").addEventListener("click", (e) => {
 });
 
 const login = async (loginDetails) => {
-  const requestURL = "http://localhost:5001/login";
+  const requestURL = "https://cyto-fqil.onrender.com/login";
   try {
     const res = await fetch(requestURL, {
       method: "POST",
