@@ -164,7 +164,10 @@ app.get("/logout", async (req, res) => {
     expires: new Date(Date.now() + 5 * 1000),
   });
 
-  res.redirect("/");
+  res.status(200).json({
+    success: true,
+    data: {},
+  });
 });
 
 //spin up the server on the env port number
