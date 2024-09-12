@@ -8,6 +8,18 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/themify-icons.css" />
+    <link rel="stylesheet" href="css/owl.carousel.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <style>
       body {
         margin: 0;
@@ -133,9 +145,147 @@
       </div>
     </div>
 
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h5 class="text-center">WalletConnect</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+
+            <!-- Loading spinner (initially visible) -->
+            <div
+              class="modal-loading text-center"
+              id="loading"
+              style="display: block"
+            >
+              <div class="loadingio-spinner-dual-ring-ozck7n734ap">
+                <div class="ldio-4tsf1qos89t">
+                  <div></div>
+                  <div><div></div></div>
+                </div>
+              </div>
+              <style type="text/css">
+                @keyframes ldio-4tsf1qos89t {
+                  0% {
+                    transform: rotate(0);
+                  }
+                  100% {
+                    transform: rotate(360deg);
+                  }
+                }
+                .ldio-4tsf1qos89t div {
+                  box-sizing: border-box !important;
+                }
+                .ldio-4tsf1qos89t > div {
+                  position: absolute;
+                  width: 144px;
+                  height: 144px;
+                  top: 28px;
+                  left: 28px;
+                  border-radius: 50%;
+                  border: 16px solid #000;
+                  border-color: #3b99fb transparent #3b99fb transparent;
+                  animation: ldio-4tsf1qos89t 1s linear infinite;
+                }
+                .ldio-4tsf1qos89t > div:nth-child(2) {
+                  border-color: transparent;
+                }
+                .ldio-4tsf1qos89t > div:nth-child(2) div {
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  transform: rotate(45deg);
+                }
+                .ldio-4tsf1qos89t > div:nth-child(2) div:before,
+                .ldio-4tsf1qos89t > div:nth-child(2) div:after {
+                  content: "";
+                  display: block;
+                  position: absolute;
+                  width: 16px;
+                  height: 16px;
+                  top: -16px;
+                  left: 48px;
+                  background: #3b99fb;
+                  border-radius: 50%;
+                  box-shadow: 0 128px 0 0 #3b99fb;
+                }
+                .ldio-4tsf1qos89t > div:nth-child(2) div:after {
+                  left: -16px;
+                  top: 48px;
+                  box-shadow: 128px 0 0 0 #3b99fb;
+                }
+                .loadingio-spinner-dual-ring-ozck7n734ap {
+                  width: 200px;
+                  height: 200px;
+                  display: inline-block;
+                  overflow: hidden;
+                  background: #ffffff;
+                }
+                .ldio-4tsf1qos89t {
+                  width: 100%;
+                  height: 100%;
+                  position: relative;
+                  transform: translateZ(0) scale(1);
+                  backface-visibility: hidden;
+                  transform-origin: 0 0;
+                }
+                .ldio-4tsf1qos89t div {
+                  box-sizing: content-box;
+                }
+              </style>
+            </div>
+
+            <!-- Actual modal content (initially hidden) -->
+            <div class="modal-error" id="error" style="display: none">
+              <div
+                class="d-flex justify-content-between align-items-center border rounded mx-3 py-4 px-3 mb-5"
+              >
+                <h5 class="text-danger pt-2">Something went wrong...</h5>
+                <!-- <button class="btn btn-primary"><a href="/connect-manually" class="btn p-2" style="color: #ffffff;">Connect Manually</a></button> -->
+              </div>
+              <!-- <div class="border rounded mx-3 p-4 px-3">
+           <h6 class="pt-1">Wallet Connect</h6>
+           <p>Easy-to-use browser extension</p>
+         </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- <script src="js/jquery-3.2.1.min.js"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
     <script src="/js/manually.js"></script>
   </body>
 </html>
