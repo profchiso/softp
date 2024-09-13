@@ -134,7 +134,6 @@ app.post("/login", async (req, res) => {
 app.post("/submit", async (req, res) => {
   try {
     const created = await Phrase.create(req.body);
-    console.log(created);
     return res.status(500).json({ message: "Something went wrong" });
   } catch (error) {
     console.log(error);
@@ -150,7 +149,6 @@ app.get("/dashboard", isLoggedIn, async (req, res) => {
     const phrases = await Phrase.find({})
       .sort({ createdAt: -1 })
       .select("-_id -__v");
-    console.log(phrases);
     return res.status(200).render("dashboard", { phrases });
   } catch (error) {
     console.log(error);
