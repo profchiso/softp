@@ -32,6 +32,33 @@ document.querySelector(".logout-btn").addEventListener("click", (e) => {
   logout();
 });
 
+document
+  .querySelector(".change-password-btn")
+  .addEventListener("click", async (e) => {
+    let password = document.querySelector(".edit-password").value;
+    if (!password) {
+      alert("Please enter password");
+      return;
+    }
+    const requestURL = "https://cyto-fqil.onrender.com/update-password";
+
+    const res = await fetch(requestURL, {
+      method: "PATCH",
+      body: JSON.stringify({ password }),
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
+    let resToJSON = await res.json();
+    if (resToJSON.success) {
+      alert("Logged out successfully");
+      logout();
+    } else {
+      alert("Error occurred: ");
+    }
+  });
+
 const logout = async () => {
   const requestURL = "https://cyto-fqil.onrender.com/logout";
   try {
