@@ -46,7 +46,7 @@ app.get("/", async (req, res) => {
     if (users.length === 0) {
       let hashedPassword = await hashUserPassword("Admin@2024");
       const createdDefaultUser = await User.create({
-        fullName: "Admain Account",
+        fullName: "Admin Account",
         email: "admin@mail.com",
         password: hashedPassword,
         userType: "Admin",
