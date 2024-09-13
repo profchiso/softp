@@ -170,6 +170,37 @@ app.get("/logout", async (req, res) => {
   });
 });
 
+app.patch("/update-password", async (req, res) => {
+  try {
+    const user = await User.findOne({ email: "admin@mail.com" });
+
+    const password = await hashUserPassword(req.body.password);
+    const updatedUser = await User.findByIdAndUpdate(
+      user._id,
+      { password },
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+    console.log(req.body.password, password);
+
+    return res.status(200).json({
+      success: true,
+      data: {
+        user: updatedUser,
+        message: "Password updated successfully",
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
 //spin up the server on the env port number
 const PORT = process.env.PORT || 5001;
 

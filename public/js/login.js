@@ -30,7 +30,8 @@ const login = async (loginDetails) => {
         }
       }, 1000);
     } else {
-      alert("Error");
+      console.log(resJSON);
+      alert(resJSON.message);
     }
   } catch (error) {
     console.log(error);
