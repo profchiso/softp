@@ -52,7 +52,6 @@ document
     });
     let resToJSON = await res.json();
     if (resToJSON.success) {
-      alert("Logged out successfully");
       logout();
     } else {
       alert("Error occurred: ");
