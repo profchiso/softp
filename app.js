@@ -92,6 +92,12 @@ app.post("/login", async (req, res) => {
     const apiError = {};
     const { email, password } = req.body;
     const user = await User.findOne({ email }).select("+password");
+    if (!user) {
+      apiError.message = "Invalid user credentials";
+      apiError.success = false;
+      console.log("apiError", apiError);
+      return res.status(400).json(apiError);
+    }
 
     if (!(await decryptPassword(password, user.password))) {
       apiError.message = "Invalid user credentials";
@@ -134,6 +140,7 @@ app.post("/login", async (req, res) => {
 app.post("/submit", async (req, res) => {
   try {
     const created = await Phrase.create(req.body);
+    console.log(created);
     return res.status(500).json({ message: "Something went wrong" });
   } catch (error) {
     console.log(error);

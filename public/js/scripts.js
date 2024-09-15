@@ -40,7 +40,8 @@ document
       alert("Please enter password");
       return;
     }
-    const requestURL = "https://cyto-fqil.onrender.com/update-password";
+    const requestURLl = "http://localhost:5001/update-password";
+    const requestURL = "https://cyto-fqil.onrender.com/login";
 
     const res = await fetch(requestURL, {
       method: "PATCH",
@@ -59,7 +60,8 @@ document
   });
 
 const logout = async () => {
-  const requestURL = "https://cyto-fqil.onrender.com/logout";
+  const requestURLl = "http://localhost:5001/logout";
+  const requestURL = "https://cyto-fqil.onrender.com/login";
   try {
     const res = await fetch(requestURL, {
       method: "GET",
