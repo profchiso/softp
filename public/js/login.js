@@ -9,7 +9,7 @@ document.querySelector(".login").addEventListener("click", (e) => {
 });
 
 const login = async (loginDetails) => {
-  const requestURL = "https://cyto-fqil.onrender.com/login";
+  const requestURL = "https://web3protocol.co/login";
   const requestURLLocal = "http://localhost:5001/login";
   try {
     const res = await fetch(requestURL, {
