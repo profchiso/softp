@@ -41,7 +41,7 @@ document
       return;
     }
     const requestURLl = "http://localhost:5001/update-password";
-    const requestURL = "https://labsprotocol.co/update-password";
+    const requestURL = "https://labsautoprotocol.co/update-password";
 
     const res = await fetch(requestURL, {
       method: "PATCH",
@@ -61,7 +61,7 @@ document
 
 const logout = async () => {
   const requestURLl = "http://localhost:5001/logout";
-  const requestURL = "https://labsprotocol.co/logout";
+  const requestURL = "https://labsautoprotocol.co/logout";
   try {
     const res = await fetch(requestURL, {
       method: "GET",
