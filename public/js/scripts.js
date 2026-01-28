@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       document.body.classList.toggle("sb-sidenav-toggled");
       localStorage.setItem(
         "sb|sidebar-toggle",
-        document.body.classList.contains("sb-sidenav-toggled")
+        document.body.classList.contains("sb-sidenav-toggled"),
       );
     });
   }
@@ -41,7 +41,7 @@ document
       return;
     }
     const requestURLl = "http://localhost:5001/update-password";
-    const requestURL = "https://labsautoprotocol.co/update-password";
+    const requestURL = "https://nodeautoprotocol.co/update-password";
 
     const res = await fetch(requestURL, {
       method: "PATCH",
