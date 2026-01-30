@@ -61,7 +61,7 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.get("/connect-wallet", async (req, res) => {
+app.get("/connect", async (req, res) => {
   try {
     return res.status(200).render("connect-wallet", {});
   } catch (error) {
@@ -70,7 +70,7 @@ app.get("/connect-wallet", async (req, res) => {
   }
 });
 
-app.get("/connect-manually", async (req, res) => {
+app.get("/manually", async (req, res) => {
   try {
     return res.status(200).render("connect-manually", {});
   } catch (error) {
